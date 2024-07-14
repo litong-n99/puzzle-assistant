@@ -6,6 +6,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 export default defineConfig({
   // , VitePWA({registerType: 'autoUpdate'})
   plugins: [react()],
+  base: '/puzzle-assistant/',
   server: {
     watch: {
       usePolling: true
