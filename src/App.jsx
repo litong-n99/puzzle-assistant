@@ -38,6 +38,8 @@ function App() {
     })
   }
 
+  const [knn, setKnn] = useState("0.7");
+
   return (
     <>
       <div>
@@ -55,7 +57,8 @@ function App() {
         }
       </div>
       <div>
-        <button onClick={() => imgFeatureMatch(bigImgRef.current, pieceImgRef.current, canvasRef.current)}>Find</button>
+        <input type="text" value={knn} onChange={(e) => setKnn(e.target.value)}/>
+        <button onClick={() => imgFeatureMatch(bigImgRef.current, pieceImgRef.current, canvasRef.current, isNaN(Number(knn)) ? 0.7 : Number(knn) )}>Find</button>
       </div>
       <div>
         <canvas className='matchCanvas' ref={canvasRef} width={canvasWH.width} height={canvasWH.height}></canvas>

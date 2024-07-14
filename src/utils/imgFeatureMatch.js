@@ -1,6 +1,6 @@
 import cv from "@techstark/opencv-js";
 
-export default (bigImg, pieceImg, canvas) => {
+export default (bigImg, pieceImg, canvas, knnDistance_option) => {
     if (!bigImg || !pieceImg) {
         alert('plz upload images')
         return;
@@ -31,7 +31,6 @@ export default (bigImg, pieceImg, canvas) => {
     bf.knnMatch(descriptors1, descriptors2, matches, 2);
 
     let counter = 0;
-    const knnDistance_option = 1.2;
     for (let i = 0; i < matches.size(); ++i) {
         let match = matches.get(i);
         let dMatch1 = match.get(0);
